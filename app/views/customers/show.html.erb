@@ -1,2 +1,16 @@
-<h1>Customers#show</h1>
-<p>Find me in app/views/customers/show.html.erb</p>
+<div class="row">
+  <div class="col-lg-12">
+    <h1>お客様情報</h1>
+    <dl>
+      <dt>お名前</dt>
+      <dd>
+        <%= @customer.full_name %>
+      </dd>
+      <dt>電子メール</dt>
+      <dd>
+        <%= @customer.email %>
+      </dd>
+    <%= link_to '編集する', edit_customer_path(@customer.id), class: "btn btn-default" %>
+    <%= link_to '削除する', customer_path(@customer.id), method: :delete, class: "btn btn-danger" %>
+  </div>
+</div>
