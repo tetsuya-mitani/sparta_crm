@@ -11,22 +11,28 @@ class CustomersController < ApplicationController
     # formから投げられたデータを受け取る
     @customer = Customer.new(customer_params)
     # これを保存する
-    @customer.save
-    # show.html.erbに飛ばす
-    redirect_to "/customers/#{@customer.id}"
+    if @customer.save
+      # show.html.erbに飛ばす
+      # redirect_to "/customers/#{@customer.id}"
+      redirect_to @customer
+    else
+      render :new
+      # redirect_to "/customers/new"
+    end
   end
 
   def edit
-    @customer = Post.find(params[:id])
+    @customer = Customer.find(params[:id])
   end
 
   def update
     # formから投げられたデータを受け取る
     @customer = Customer.find(params[:id])
-    @customer.update_attributes(customer_params)
-
-    # show.html.erbに飛ばす
-    redirect_to "/customers/#{@customer.id}"
+    if @customer.update(customer_params)
+      redirect_to @customer
+    else
+      render :new
+    end
   end
 
   def show
@@ -36,7 +42,7 @@ class CustomersController < ApplicationController
   def destroy
     # formから投げられたデータを受け取る
     @customer = Customer.find(params[:id])
-    @custoemr.delete
+    @customer.delete
 
     # show.html.erbに飛ばす
     redirect_to "/customers"
