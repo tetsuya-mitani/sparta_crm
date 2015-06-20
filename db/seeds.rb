@@ -6,11 +6,16 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+Company.create(name: 'Yahoo', url: 'http://www.yahoo.co.jp/', address: '東京都港区赤坂9-7-1 ミッドタウン・タワー')
+Company.create(name: 'Google', url: 'https://www.google.co.jp/', address: '東京都港区六本木 6-10-1')
+Company.create(name: 'Microsoft', url: 'https://www.microsoft.com/ja-jp/default.aspx', address: '東京都港区港南 2-16-3 品川グランドセントラルタワー')
+
 100.times do |index|
   Customer.create(
-    family_name: "鈴木",
-    given_name: "太郎",
-    email: "customer_#{index}@sparta.com"
+    family_name: Faker::Japanese::Name.last_name,
+    given_name: Faker::Japanese::Name.first_name,
+    email: "customer_#{index}@sparta.com",
+    company_id: rand(3) + 1
   )
 end
 

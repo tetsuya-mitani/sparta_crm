@@ -1,6 +1,8 @@
 class CustomersController < ApplicationController
+  before_action :set_customer, only: [:show, :edit, :destroy, :update]
+
   def index
-    @customers = Customer.all
+    @customers = Customer.page(params[:page])
   end
 
   def new
@@ -22,12 +24,9 @@ class CustomersController < ApplicationController
   end
 
   def edit
-    @customer = Customer.find(params[:id])
   end
 
   def update
-    # formから投げられたデータを受け取る
-    @customer = Customer.find(params[:id])
     if @customer.update(customer_params)
       redirect_to @customer
     else
@@ -36,12 +35,9 @@ class CustomersController < ApplicationController
   end
 
   def show
-    @customer = Customer.find(params[:id])
   end
 
   def destroy
-    # formから投げられたデータを受け取る
-    @customer = Customer.find(params[:id])
     @customer.delete
 
     # show.html.erbに飛ばす
@@ -58,4 +54,9 @@ class CustomersController < ApplicationController
       :email,
     )
   end
+
+  def set_customer
+    @customer = Customer.find(params[:id])
+  end
+
 end
