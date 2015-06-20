@@ -45,7 +45,8 @@ class CustomersController < ApplicationController
     @customer.delete
 
     # show.html.erbに飛ばす
-    redirect_to "/customers"
+    # redirect_to "/customers"
+    redirect_to customers_url
   end
 
   private
