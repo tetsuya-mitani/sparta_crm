@@ -52,6 +52,7 @@ class CustomersController < ApplicationController
       :family_name,
       :given_name,
       :email,
+      :company_id
     )
   end
 
