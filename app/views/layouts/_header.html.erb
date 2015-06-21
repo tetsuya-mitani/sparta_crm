@@ -14,6 +14,9 @@
     <div class="collapse navbar-collapse" id="navbar-collapse-menu">
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
+          <p class="navbar-text">
+            <%= current_user.family_name %><%= current_user.given_name %>さんようこそ！
+          </p>
           <!-- <li><a href="#">設定変更</a></li> -->
           <li><%= link_to '設定変更', edit_user_registration_path %></li>
           <!-- <li><a href="#">ログアウト</a></li> -->
