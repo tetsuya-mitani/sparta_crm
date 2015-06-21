@@ -1,5 +1,6 @@
 class CustomersController < ApplicationController
   before_action :set_customer, only: [:show, :edit, :destroy, :update]
+  before_action :authenticate_user!, only: [:edit, :destroy, :update]
 
   def index
     @q = Customer.ransack(params[:q])
