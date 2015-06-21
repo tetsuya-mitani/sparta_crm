@@ -49,5 +49,7 @@ group :development, :test do
   gem 'faker'
   gem 'faker-japanese'
   gem 'rails-erd'
+  gem 'annotate'
+  gem 'better_errors'
 end
 
