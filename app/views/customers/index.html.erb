@@ -3,28 +3,34 @@
     <h1>顧客情報一覧</h1>
     <%= search_form_for @q do |f| %>
       <div class="row">
-        <div class="col-sm-3">
+        <div class="col-sm-2">
           <div class="form-group">
             <%= f.label :family_name, "姓" %>
             <%= f.search_field :family_name_cont %>
           </div>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-2">
           <div class="form-group">
             <%= f.label :given_name, "名" %>
             <%= f.search_field :given_name_cont %>
           </div>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-2">
           <div class="form-group">
             <%= f.label :company_name, "会社名" %>
             <%= f.search_field :company_name_cont %>
           </div>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-2">
           <div class="form-group">
             <%= f.label :email, "電子メール" %>
             <%= f.search_field :email_cont %>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div class="form-group">
+            <%= f.label :comments_body, "コメント" %>
+            <%= f.search_field :comments_body_cont %>
           </div>
         </div>
       </div>
